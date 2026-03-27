@@ -1,0 +1,19 @@
+{% extends "socialaccount/base_entrance.html" %}
+
+{% block content %}
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif;">
+    <h3>Redirecting securely...</h3>
+    <p>Please wait while we connect you to your provider.</p>
+    <form id="auto-submit-form" method="post" style="display: none;">
+      {% csrf_token %}
+      <button type="submit">Continue</button>
+    </form>
+  </div>
+
+  <script>
+    // Automatically submit the form to bypass the confirmation screen
+    window.onload = function() {
+      document.getElementById("auto-submit-form").submit();
+    };
+  </script>
+{% endblock %}
